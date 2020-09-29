@@ -1,0 +1,34 @@
+
+#photo-modal .modal-dialog {
+    width: 90% !important;
+}
+
+#photo-modal .modal-body {
+    overflow: auto;
+    height: 500px !important;
+    min-height: 300px !important;
+}
+
+#photo-modal .modal_thumbnails {
+    width: 100%;
+}
+
+#photo-modal #set_user_image {
+    margin: 10px;
+}
+
+
+#photo-modal #modal_sidebar {
+    position: fixed !important;
+}
+
+/*************************************/
+.row {
+    margin: 0;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}

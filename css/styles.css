@@ -1,0 +1,17 @@
+.row {
+    margin: 0;
+}
+
+/* .home_page_photo{
+    width: 200px;
+} */
+
+.photo_page_photo{
+    width: 100%;
+}
+
+/* Home Page Pagination */
+
+.pager li a.active_link{
+    background: #ccc;
+}
