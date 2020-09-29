@@ -7,6 +7,7 @@ class Database {
 
     public function __construct() {
       $this->db = $this->open_db_connection();
+      $this->set_timezone();
     }
 
     public function __destruct() {
@@ -47,6 +48,11 @@ class Database {
     //5
     public function the_insert_id() {
         return $this->db->insert_id;
+    }
+    
+    //6
+    public function set_timezone() {
+        $this->query("SET time_zone = '+02:00'");
     }
 }
 
