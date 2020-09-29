@@ -8,6 +8,7 @@
     if (isset($_POST['submit'])) {
         $photo =  new Photo();
         $photo->photo_title = $_POST['title'];
+        $photo->user_id = $_SESSION['user_id'];
         $photo->set_file($_FILES['file']);
         if($photo->save()){
             $message = "Photo uploaded successfully";
@@ -20,6 +21,7 @@
     if (isset($_FILES['file']) && isset($_POST['title_dropzone'])) {
         $photo =  new Photo();
         $photo->photo_title = $_POST['title'];
+        $photo->user_id = $_SESSION['user_id'];
         $photo->set_file($_FILES['file']);
         if($photo->save()){
             $message = "Photo uploaded successfully";

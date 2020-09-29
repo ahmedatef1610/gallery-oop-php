@@ -5,7 +5,11 @@
 
 
 <?php
-    $photos = Photo::find_all();
+    if(!empty($_GET['all']) && $_GET['all'] == "true"){
+        $photos = Photo::find_all();
+    }else{
+        $photos = User::find_by_id($_SESSION['user_id'])->photos();
+    }
 ?>
 
 <body>
@@ -22,6 +26,10 @@
                         <?php if($session->message()): ?>
                             <div class="bg-success alert alert-success"><?php echo $session->message() ?></div>
                         <?php endif ?>
+                        <div class='col-md-12'>
+                            <a href="photos.php?all=true" class="btn btn-primary">All Photo</a>
+                        </div>
+                        <br><br><br>
                         <div class='col-md-12'>
                             <table class='table table-bordered'>
                                 <thead>

@@ -3,9 +3,10 @@
 class Database {
 
     public $connection;
+    public $db;
 
     public function __construct() {
-        $this->open_db_connection();
+      $this->db = $this->open_db_connection();
     }
 
     public function __destruct() {
@@ -20,11 +21,12 @@ class Database {
         } else {
             //echo 'Connected successfully';
         }
+        return $this->connection;
     }
 
     //2
     public function query( $sql ) {
-        $result = $this->connection->query( $sql );
+        $result = $this->db->query( $sql );
         $this->confirm_query( $result );
         return $result;
     }
@@ -32,19 +34,19 @@ class Database {
     //3
     private function confirm_query( $result ) {
         if ( !$result ) {
-            die( "<div><strong>Query Failed : </strong> <code> {$this->connection->error} </code></div>" );
+            die( "<div><strong>Query Failed : </strong> <code> {$this->db->error} </code></div>" );
         }
     }
 
     //4
     public function escape_string($string) {
-        $escaped_string = $this->connection->real_escape_string($string);
-        return $escaped_string;
+        return $this->db->real_escape_string($string);
+      
     }
 
     //5
     public function the_insert_id() {
-        return $this->connection->insert_id;
+        return $this->db->insert_id;
     }
 }
 
